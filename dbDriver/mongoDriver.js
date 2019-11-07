@@ -21,15 +21,31 @@ app.listen(portNumber, function() {
 	console.log("node listening on port " + portNumber)
 });
 
-
 // Request Handlers
 app.get("/test", (req, res) => {
 	mongoClient.connect(mongoUri, {'useUnifiedTopology': true}, function(err, cli) {
 		if (err) throw err;
 		const db = cli.db('Sorghum')
-		db.collection('Annotation').findOne({"sequence": "Chr01"}, (err, result) =>
+		db.collection('Annotation').findOne({"sequence": "Chr01"}, (err, result) => {
+			if (err) throw err;
 			console.log(result)
-		)
+		});
 	});
 });
 
+app.get("/testquery", (req, res) => {
+	var chr = req.query.chr
+	var start = req.query.start
+	var end = req.query.end
+	
+	mongoClient.connect(mongoUri, {'useUnifiedTopology': true}, (err, cli) => {
+		if (err) throw err;
+		const db = cli.db('Sorghum')
+		var test;
+		console.log('connected')	
+		db.collection('Cas9').find({'chromosome': 'Chr01' }).toArray(function(err,docs) {if (err) throw err; test = docs})
+		console.log(test) // for some reason this is undefined.
+	});
+
+
+});
