@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './pages/Home/Home'
-import Basicsearch from './pages/Basicsearch/Basicsearch'
+import BasicSearch from './pages/BasicSearch/BasicSearch'
 
 class Routecontroller extends React.Component {
 
@@ -9,7 +9,7 @@ class Routecontroller extends React.Component {
         return (
             <Router>
                 <Route path='/home' component={Home}/>
-                <Route path='/basicsearch' component={Basicsearch}/>
+                <Route path='/basicsearch' component={BasicSearch}/>
             </Router>
         )
     }

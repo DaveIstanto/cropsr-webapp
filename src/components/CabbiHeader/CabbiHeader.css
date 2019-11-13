@@ -1,0 +1,28 @@
+/**
+* CSS Module for Header
+*
+*/
+
+.headerContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    outline-color:gray;
+    border-bottom: 1px solid;
+}
+
+.logoContainer {
+    display: flex;
+    /* background-color: black; */
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.logo {
+    width: 40%;
+    height: auto;
+}

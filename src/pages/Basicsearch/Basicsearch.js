@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
+import CabbiHeader from '../../components/CabbiHeader/CabbiHeader';
 
 /**
  * This page is responsible to take in search queries
@@ -20,28 +21,11 @@ class BasicSearchscreen extends React.Component {
 
 	render() {
 		return (
-			<div className='basicSearchMainContainer'>
-				<div className='titleContainer'>
-					Search your region!
-				</div>
-				<div className='searchBoxContainer'>
-					<Form className='chromForm'>
-						<Form.Label>Chromosome number</Form.Label>
-						<Form.Control type="text" placeholder="Place your chromosome number here!" value={this.state.value} onChange={this.fillChr.bind(this)}/>
-					</Form>
-					<Form className='startForm'>
-						<Form.Label>Start region</Form.Label>	
-						<Form.Control type="text" placeholder="Place your region start position here!" value={this.state.value} onChange={this.fillStart.bind(this)}/>
-					</Form>
-					<Form className='endForms'>
-						<Form.Label>End region</Form.Label>	
-						<Form.Control type="text" placeholder="Place your region end position here!" value={this.state.value} onChange={this.fillEnd.bind(this)}/>
-					</Form>
-				</div>
-				<div className='buttonContainer'>
-					<Button className='searchButton' variant='Dark' type="submit" value='search' onClick={(event) => this.searchClick(event)}/>
-				</div>
+			<div className='mainContainer'>
+				<CabbiHeader />
+				<Button bsSize='large'>Try CROPSR!</Button>
 			</div>
+			
 		);
 	};
 
