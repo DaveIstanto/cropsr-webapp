@@ -14,8 +14,6 @@ import callQuery from '../../redux/actions/callQuery'
  * This page is responsible to take in search queries
  */
 
-const controllerListeningAddress = "http://localhost:4000/" // This is nodemon's listening address
-
 class BasicSearchscreen extends React.Component {
 
 	render() {
@@ -44,8 +42,7 @@ class BasicSearchscreen extends React.Component {
 		);
 	};
 
-	searchClick(event) {
-		// console.log(this.props.query)
+	searchClick(e) {
 		this.props.callQuery(this.props.query)
 	}
 

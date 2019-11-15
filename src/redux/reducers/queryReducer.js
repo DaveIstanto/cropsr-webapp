@@ -1,12 +1,11 @@
 const queryReducer = function(state={}, action) {
     switch (action.type) {
         case 'GENOME': {
-            console.log(state)
             state = {...state, genome: action.payload}
             break;
         }
 
-        case 'CRISPRSYSTEM': {
+        case 'CRISPRSYSTEM': {  
             const crisprSystem = action.payload.system
             const crisprBool = action.payload.value
             const prevSystem = state.system

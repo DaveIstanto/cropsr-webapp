@@ -3,16 +3,13 @@ import './DropdownGenome.css'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { updateGenome } from '../../redux/actions/updateQuery';
-
-const GENOME_LIST = ['Select from List', 'Sorghum', 'Glycine Max']
+import { GENOME_LIST } from '../../ENV_VARIABLES'
 
 class DropdownGenome extends React.Component {
     constructor(props) {
         super(props);
         this.state = {}
     };
-
-
 
     render() {
         var genome_options = []

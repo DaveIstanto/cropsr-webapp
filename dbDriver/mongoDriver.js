@@ -2,23 +2,25 @@
 // Use nodemon to listen to requests via express package 
 // Queries mongodb and returns the result of query
 
+import { MONGO_URI, DB_DRIVER_PORTNUMBER } from '../src/ENV_VARIABLES'
+
 // MongoDBsSetup
 var mongo = require('mongodb')
 var mongoClient = mongo.MongoClient;
-var mongoUri = "mongodb://guest:guest@localhost:27017/";
+var MONGO_URI = "mongodb://guest:guest@localhost:27017/";
 
 // Listener setup
 var express = require('express');
 var cors = require('cors');
 var bodyParser = require('body-parser')
-var portNumber = 4000
+var DB_DRIVER_PORTNUMBER = 4000
 
 const app = express();
 app.use(cors())
 app.use(bodyParser.json())
 
 app.listen(portNumber, function() {
-	console.log("node listening on port " + portNumber)
+	console.log("node listening on port " + DB_DRIVER_PORTNUMBER)
 });
 
 // Request Handlers
@@ -39,7 +41,7 @@ app.get("/gRNAquery", (req, res) => {
 	const start = 800
 	const end = 900
 
-	mongoClient.connect(mongoUri, {'useUnifiedTopology': true}, (err, cli) => {
+	mongoClient.connect(MONGO_URI, {'useUnifiedTopology': true}, (err, cli) => {
 		if (err) throw err;
 		const db = cli.db(genome)
 		var test;
