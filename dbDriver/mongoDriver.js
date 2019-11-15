@@ -22,30 +22,34 @@ app.listen(portNumber, function() {
 });
 
 // Request Handlers
-app.get("/test", (req, res) => {
-	mongoClient.connect(mongoUri, {'useUnifiedTopology': true}, function(err, cli) {
-		if (err) throw err;
-		const db = cli.db('Sorghum')
-		db.collection('Annotation').findOne({"sequence": "Chr01"}, (err, result) => {
-			if (err) throw err;
-			console.log(result)
-		});
-	});
-});
+app.get("/gRNAquery", (req, res) => {
+	// Acutal query inputs
+	/**
+	const genome = req.query.genome
+	const system = req.query.system
+	const chr = parseInt(req.query.chr)
+	const start = parseInt(req.query.start)
+	const end = parseInt(req.query.end)
+	*/
 
-app.get("/testquery", (req, res) => {
-	var chr = req.query.chr
-	var start = req.query.start
-	var end = req.query.end
-	
+	//toy query to parse data
+	const genome = 'Sorghum'
+	const system = 'Cas9'
+	const chr = 'Chr01'
+	const start = 800
+	const end = 900
+
 	mongoClient.connect(mongoUri, {'useUnifiedTopology': true}, (err, cli) => {
 		if (err) throw err;
-		const db = cli.db('Sorghum')
+		const db = cli.db(genome)
 		var test;
 		console.log('connected')	
-		db.collection('Cas9').find({'chromosome': 'Chr01' }).toArray(function(err,docs) {if (err) throw err; test = docs})
-		console.log(test) // for some reason this is undefined.
+		db.collection(system).find({'chromosome': chr, 'cutsite': {$gt: start, $lt: end}}).limit(10).toArray(function(err,docs) {
+			if (err) return res.send(err); 
+			return res.send(docs)
+		
+		})
 	});
 
-
 });
+
