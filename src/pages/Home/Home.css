@@ -2,25 +2,29 @@
 * CSS Module for Home page
 */
 
-.mainContainer {
+.homeMainContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.descContainer {
-    width: 35%;
-    margin-top: 2em;
-
+.homeHeaderContainer {
+    border-bottom: gray 1px solid;
+    width: 40%;
 }
 
-.desc {
+.homeDescContainer {
+    width: 35%;
+    margin-top: 2em;
+}
+
+.homeDesc {
     width: 100%
 }
 
-.buttonContainer {
+.homeButtonContainer {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-top: 1em;
+    margin-top: 1.5em;
 }

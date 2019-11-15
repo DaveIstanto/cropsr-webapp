@@ -3,9 +3,9 @@ import CabbiLogo from './CabbiLogo.png'
 import './CabbiHeader.css'
 
 const CabbiHeader = () => (
-  <div className='headerContainer'>
-    <a className='logoContainer' href='https://cabbi.bio/'>
-      <img className='logo 'src={CabbiLogo} alt='Cabbi Logo' />
+  <div className='cabbiHaderContainer'>
+    <a className='cabbiLogoContainer' href='https://cabbi.bio/'>
+      <img className='cabbiLogo' src={CabbiLogo} alt='Cabbi Logo' />
     </a>
   </div>
 );

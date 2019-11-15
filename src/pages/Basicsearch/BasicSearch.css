@@ -1,0 +1,37 @@
+.basicSearchMainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+}
+
+.basicSearchHeaderContainer {
+    width: 40%;
+    border-bottom: gray 1px solid;
+}
+
+.basicSearchContentContainer {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.basicSearchDropDownContainer {
+   
+}
+
+.basicSearchCutRegionFormContainer {
+
+}
+
+.basicSearchCropsrButtonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 2em;
+
+}
+
+.basicSearchCropsrButton {
+    outline: none;
+    border-width: 0px;
+}

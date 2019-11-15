@@ -1,55 +1,69 @@
 import React from 'react';
-import { Form, Button } from 'react-bootstrap';
+import './BasicSearch.css';
 import CabbiHeader from '../../components/CabbiHeader/CabbiHeader';
+import DropdownGenome from '../../components/DropdownGenome/DropdownGenome';
+import SystemCheckbox from '../../components/SystemCheckbox/SystemCheckbox';
+import CutRegionForm from '../../components/CutRegionForm/CutRegionForm';
+import CropsrButton from '../../components/CropsrButton/CropsrButton';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import callQuery from '../../redux/actions/callQuery'
+
 
 /**
  * This page is responsible to take in search queries
  */
 
-const controllerAddress = "http://localhost:4000/" // This is nodemon's listening address
+const controllerListeningAddress = "http://localhost:4000/" // This is nodemon's listening address
 
 class BasicSearchscreen extends React.Component {
 
-	constructor(props) {
-		super(props);
-		this.state = {
-			chr : "",
-			start_region : -1,
-			end_region : -1,
-		};
-	};
-
 	render() {
 		return (
-			<div className='mainContainer'>
-				<CabbiHeader />
-				<Button bsSize='large'>Try CROPSR!</Button>
+			<div className="basicSearchMainContainer">
+				<div className="basicSearchHeaderContainer"><CabbiHeader/></div>
+				<div className='basicSearchContentContainer'>
+					<div className='basicSearchDropDownContainer'>
+						<DropdownGenome />
+					</div>
+					<div className='basicSearchCheckboxContainer'>
+						<SystemCheckbox />
+					</div>
+					<div className='basicSearchCutRegionFormContainer'>
+						<CutRegionForm />
+					</div>
+					<div className='basicSearchCropsrButtonContainer'>
+						<button className='basicSearchCropsrButton' onClick={this.searchClick.bind(this)}>
+							<CropsrButton />
+						</button>
+					</div>
+				</div>
+				
 			</div>
 			
 		);
 	};
 
-	// Functions for page
-	fillChr(event) {
-		this.setState({chr: event.target.value})
-	};
-
-	fillStart(event) {
-		this.setState({start_region: event.target.value})
-	};
-
-	fillEnd(event) {
-		this.setState({end_region: event.target.value})
-	};
-	
 	searchClick(event) {
-		var queryAddress = controllerAddress + "testquery?chr=" + this.state.chr + "&start=" + this.state.start_region + "&end=" + this.state_end_region 
+		// console.log(this.props.query)
+		this.props.callQuery(this.props.query)
+	}
 
-		// Get json as response
-		fetch(queryAddress, {mode:'cors'}).then(res => res.json())
-		.then(data => console.log(data))
-	};
 
 };
 
-export default BasicSearchscreen;
+// Pass redux states to current component props
+function mapStateToProps(state) {
+	return {
+		query: state.query
+	}
+}
+
+// Pass actions and functions to update redux to current component props
+function matchDispatchToProps(dispatch) {
+	return bindActionCreators({
+		callQuery: callQuery
+	}, dispatch)
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(BasicSearchscreen);

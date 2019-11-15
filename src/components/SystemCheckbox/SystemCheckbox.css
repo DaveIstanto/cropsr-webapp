@@ -1,0 +1,22 @@
+.systemCheckboxMainContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.systemCheckboxTitleContainer {
+    font-size: 2em;
+    padding-top: 0.5em;
+}
+
+.systemCheckboxesContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    font-size: 1em;
+}
+
+.checkboxContainer {
+    margin-top: 0.5em;
+    width: 50%;
+}

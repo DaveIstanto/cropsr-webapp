@@ -1,0 +1,19 @@
+.dropdownGenomeMainContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.genomeTitleContainer {
+    font-size: 2em;
+}
+
+.dropDownContainer {
+    margin-top: 0.5em;
+}
+
+.dropDown {
+    /* background-color: black; */
+    width: 100%;
+    height: 3em;
+}
