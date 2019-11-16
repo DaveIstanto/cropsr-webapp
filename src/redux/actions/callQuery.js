@@ -1,5 +1,4 @@
-
-const DB_DRIVER_ADDRESS = process.env.DB_DRIVER_ADDRESS
+import { DB_DRIVER_ADDRESS } from '../../REACT_ENV_VAR'
 
 const callQuery = (queryInfo) => {
     // Parse query, ask nodemon for mongodb output. 
@@ -9,7 +8,7 @@ const callQuery = (queryInfo) => {
     // .then(response => response.json())
     // .then(data => this.setState({fetchedCards: data.data}))
 
-    console.log(DB_DRIVER_ADDRESS)
+    console.log('DB_DRIVER_ADDRESS', DB_DRIVER_ADDRESS)
 
     // Get the query info for each category
     const queryGenome = queryInfo.genome

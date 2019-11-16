@@ -3,8 +3,6 @@
 // Queries mongodb and returns the result of query
 
 // Take environment variable
-DB_DRIVER_PORTNUMBER = process.env.DB_DRIVER_PORTNUMBER
-MONGO_URI = process.env.MONGO_URI
 
 // MongoDBsSetup
 var mongo = require('mongodb')
