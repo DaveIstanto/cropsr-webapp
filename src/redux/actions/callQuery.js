@@ -34,23 +34,19 @@ const callQuery = (queryInfo) => {
         var querySystem = querySystems[system_index]
         const callQueryAddress = DB_DRIVER_ADDRESS + '/gRNAquery?genome=' + queryGenome + '&system=' + querySystem + '&chr=' + queryChr + '&start=' + queryStart + '&end=' + queryEnd
         console.log(callQueryAddress)
-        fetch(callQueryAddress, {mode: 'cors'}).then(response => response.json()).then(data => singleResult= data).then(() => queryResults.push(singleResult))
-    }
-
-    console.log(queryResults)
-    console.log(queryResults[0])
-
-
-    return {
-        type: "CALL",
-        payload: 'NODEMON OUTPUT'
+        fetch(callQueryAddress, {mode: 'cors'})
+        .then(response => response.json())
+        .then(data => singleResult= data)
+        .then(() => addQueries(data))
     }
 }
 
-function addQueryFromCallback(queryResults, newResults) {
-    return queryResults.concat(newResults)
-
-} 
+function addQueries(queryResult) {
+    return {
+        type: 'CALL',
+        payload: queryResult
+    }
+}
 
 
 export default callQuery;
