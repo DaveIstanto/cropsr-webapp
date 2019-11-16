@@ -21,7 +21,7 @@ const app = express();
 app.use(cors())
 app.use(bodyParser.json())
 
-app.listen(portNumber, function() {
+app.listen(DB_DRIVER_PORTNUMBER, function() {
 	console.log("node listening on port " + DB_DRIVER_PORTNUMBER)
 });
 
