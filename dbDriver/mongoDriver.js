@@ -2,7 +2,9 @@
 // Use nodemon to listen to requests via express package 
 // Queries mongodb and returns the result of query
 
-var { MONGO_URI, DB_DRIVER_PORTNUMBER } = require('../src/ENV_VARIABLES.js')
+// Take environment variable
+DB_DRIVER_PORTNUMBER = process.env.DB_DRIVER_PORTNUMBER
+MONGO_URI = process.env.MONGO_URI
 
 // MongoDBsSetup
 var mongo = require('mongodb')
