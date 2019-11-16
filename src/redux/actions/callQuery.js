@@ -35,7 +35,7 @@ const callQuery = (queryInfo) => {
         console.log(callQueryAddress)
         fetch (callQueryAddress, {mode: 'cors'})
         .then(response => response.json())
-        .then(data => queryResults.concat(data))
+        .then(data => addQueryFromCallback(queryResults, data))
     }
 
     console.log(queryResults)
@@ -46,5 +46,11 @@ const callQuery = (queryInfo) => {
         payload: 'NODEMON OUTPUT'
     }
 }
+
+function addQueryFromCallback(queryResults, newResults) {
+    return queryResults.concat(newResults)
+
+} 
+
 
 export default callQuery;
