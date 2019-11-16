@@ -8,7 +8,7 @@ import CropsrButton from '../../components/CropsrButton/CropsrButton';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import callQuery from '../../redux/actions/callQuery'
-
+import { DB_DRIVER_ADDRESS } from '../../REACT_ENV_VAR'
 
 /**
  * This page is responsible to take in search queries
@@ -43,9 +43,38 @@ class BasicSearchscreen extends React.Component {
 	};
 
 	searchClick(e) {
-		this.props.callQuery(this.props.query)
-	}
 
+		var queryInfo = this.props.query
+
+		console.log('DB_DRIVER_ADDRESS', DB_DRIVER_ADDRESS)
+	
+		// Get the query info for each category
+		const queryGenome = queryInfo.genome
+		const queryChr = queryInfo.chr
+		const queryStart = queryInfo.start
+		const queryEnd = queryInfo.end
+		var querySystems = []
+	
+		// Handle selected crispr systems only
+		const systems = queryInfo.system
+	
+		for (var crisprSystem of Object.keys(systems)) {
+			if (systems[crisprSystem] === true) {
+				querySystems.push(crisprSystem)
+			}
+		}
+	
+		// Get result of Query
+	
+		for (var system_index in querySystems) {
+			var querySystem = querySystems[system_index]
+			const callQueryAddress = DB_DRIVER_ADDRESS + '/gRNAquery?genome=' + queryGenome + '&system=' + querySystem + '&chr=' + queryChr + '&start=' + queryStart + '&end=' + queryEnd
+			console.log(callQueryAddress)
+			fetch(callQueryAddress, {mode: 'cors'})
+			.then(response => response.json())
+			.then(data => this.props.callQuery(data))
+		}
+	}
 
 };
 
