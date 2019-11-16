@@ -28,13 +28,15 @@ const callQuery = (queryInfo) => {
 
     // Get result of Query
     var queryResults = []
-    var savedQuery;
+    var singleResult;
 
     for (var system_index in querySystems) {
         var querySystem = querySystems[system_index]
         const callQueryAddress = DB_DRIVER_ADDRESS + '/gRNAquery?genome=' + queryGenome + '&system=' + querySystem + '&chr=' + queryChr + '&start=' + queryStart + '&end=' + queryEnd
         console.log(callQueryAddress)
-        fetch(callQueryAddress, {mode: 'cors'}).then(response => response.json()).then(data => savedQuery = data).then(() => console.log(savedQuery))
+        fetch(callQueryAddress, {mode: 'cors'}).then(response => response.json()).then(data => singleResult= data).then(() => queryResults.concat(singleResult))
+        console.log(singleResult)
+        console.log(queryResults)
 
     }
 
