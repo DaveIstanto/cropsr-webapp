@@ -37,6 +37,7 @@ const callQuery = (queryInfo) => {
         fetch(callQueryAddress, {mode: 'cors'}).then(response => response.json()).then(data => singleResult= data).then(() => queryResults.push(singleResult))
     }
 
+    queryResults.push(queryResults[0])
     console.log(queryResults)
 
 
