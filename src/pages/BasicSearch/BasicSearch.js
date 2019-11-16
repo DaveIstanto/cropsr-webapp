@@ -66,7 +66,7 @@ class BasicSearchscreen extends React.Component {
 	
 		// Get result of Query
 	
-		for (var system_index in querySystems) {
+		for (var system_index in querySystems) {	
 			var querySystem = querySystems[system_index]
 			const callQueryAddress = DB_DRIVER_ADDRESS + '/gRNAquery?genome=' + queryGenome + '&system=' + querySystem + '&chr=' + queryChr + '&start=' + queryStart + '&end=' + queryEnd
 			console.log(callQueryAddress)

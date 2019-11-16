@@ -34,7 +34,7 @@ const queryReducer = function(state={}, action) {
         }
 
         case 'CALL' : {
-            state = {...state, queryResult: action.payload}
+            state = {...state, queryResult: [...state.queryResult, action.payload]}
             break;
         }
 
