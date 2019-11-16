@@ -34,7 +34,7 @@ const callQuery = (queryInfo) => {
         const callQueryAddress = DB_DRIVER_ADDRESS + '/gRNAquery?genome=' + queryGenome + '&system=' + querySystem + '&chr=' + queryChr + '&start=' + queryStart + '&end=' + queryEnd
         console.log(callQueryAddress)
         console.log(typeof(fetch(callQueryAddress, {mode: 'cors'}).then(response => response.json())))
-        
+        console.log(typeof(new Promise))
     }
 
     console.log(queryPromises)
