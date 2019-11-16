@@ -35,7 +35,7 @@ const callQuery = (queryInfo) => {
         console.log(callQueryAddress)
         fetch (callQueryAddress, {mode: 'cors'})
         .then(response => response.json())
-        .then(data => addQueryFromCallback(queryResults, data))
+        .then(data => queryResults = addQueryFromCallback(queryResults, data))
     }
 
     console.log(queryResults)
