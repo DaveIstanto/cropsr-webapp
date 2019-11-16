@@ -38,6 +38,7 @@ const callQuery = (queryInfo) => {
     }
 
     console.log(queryResults)
+    console.log(queryResults[0])
 
 
     return {
