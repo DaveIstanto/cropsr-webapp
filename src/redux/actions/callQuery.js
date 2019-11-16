@@ -37,7 +37,7 @@ const callQuery = (queryInfo) => {
         
     }
 
-    console.log(queryResults)
+    console.log(queryPromises)
 
 
     return {
