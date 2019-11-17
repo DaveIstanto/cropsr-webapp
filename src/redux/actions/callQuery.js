@@ -5,5 +5,4 @@ function callQuery(queryResult) {
     }
 }
 
-
 export default callQuery;

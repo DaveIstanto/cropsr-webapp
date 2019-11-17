@@ -38,9 +38,16 @@ const queryReducer = function(state={}, action) {
             break;
         }
 
+        case 'CLEAR' : {
+            state = {...state, queryResult: []}
+            break;
+        }
+
         default:
             state = {...state};
+            break;
     }
+    
     return state
 } 
 

@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .searchResultsHeaderContainer {
@@ -12,5 +13,21 @@
 .searchResultsTableContainer {
     width: 70%;
     padding-top: 1em;
+}
 
+.searchResultsLoaderContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.searchResultsAltMainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.searchResultsLoaderLabel {
+    margin-top: 1em;
 }

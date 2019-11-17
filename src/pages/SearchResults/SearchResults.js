@@ -8,6 +8,9 @@ import { DB_DRIVER_ADDRESS } from '../../REACT_ENV_VAR'
 import { bindActionCreators } from 'redux';
 import callQuery from '../../redux/actions/callQuery';
 import { Link } from 'react-router-dom';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import Loader from 'react-loader-spinner';
+
 
 class SearchResults extends React.Component {
     constructor(props) {
@@ -19,16 +22,13 @@ class SearchResults extends React.Component {
     }
 
     render() {        
-
-        if (this.state.dataFetched === false){
+        if (this.state.dataFetched === false) {
             return (
-                <div>
-                    <div>
-                        Still loading...
+                <div className='searchResultsAltMainContainer'>
+                    <div className='searchResultsLoaderContainer'>
+                        <Loader height={200} width={200} type='Rings' color='#018100'/>
+                        <div className='searchResultsLoaderLabel'>Currently Loading...</div>
                     </div>
-                    <button onClick={() => this.setState({dataFetched: true})}>
-                        Not loading button
-                    </button>
                 </div>
             )
         } else {
@@ -121,8 +121,8 @@ class SearchResults extends React.Component {
             .then(data => this.props.callQuery(data)))
             
             fetchPromises.push(fetchPromise)
-		}
-        console.log(fetchPromises)
+        }
+
         Promise.all(fetchPromises).then(() => this.setState({dataFetched: true})) 
 	}
 
