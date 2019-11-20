@@ -20,15 +20,15 @@ class CutRegionForm extends React.Component {
                 <div className='cutRegionFormsContainer'>
                     <div className='cutRegionFormContainer'>
                         <div>Chromosome Number</div>
-                        <input type='text' pattern="[0-9]*" value={this.state.value} onChange={this.fillChr.bind(this)}/>            
+                        <input type='number' value={this.state.value} onChange={this.fillChr.bind(this)}/>            
                     </div>
                     <div className='cutRegionFormContainer'>
                         <div>Start</div>
-                        <input type='text' pattern="[0-9]*" value={this.state.value} onChange={this.fillStart.bind(this)}/> 
+                        <input type='number' value={this.state.value} onChange={this.fillStart.bind(this)}/> 
                     </div>
                     <div className='cutRegionFormContainer'>
                         <div>End</div>
-                        <input type='text' pattern="[0-9]*" value={this.state.value} onChange={this.fillEnd.bind(this)}/> 
+                        <input type='number' pattern="[0-9]*" value={this.state.value} onChange={this.fillEnd.bind(this)}/> 
                     </div>
                 </div>
             </div>
