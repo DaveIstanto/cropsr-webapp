@@ -2,6 +2,7 @@
   "name": "cropsr-webapp",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://cabbilims.igb.illinois.edu/cropsr",
   "dependencies": {
     "bootstrap": "^4.3.1",
     "dotenv": "^8.2.0",
