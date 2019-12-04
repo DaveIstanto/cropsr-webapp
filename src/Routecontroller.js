@@ -9,7 +9,7 @@ class Routecontroller extends React.Component {
     render() {
         return (
             <Router>
-                <Route path='/home' component={Home}/>
+                <Route exact path='/' component={Home}/>
                 <Route path='/basicsearch' component={BasicSearch}/>
                 <Route path='/searchresults' component = {SearchResults}/>
             </Router>
