@@ -23,6 +23,8 @@ app.listen(DB_DRIVER_PORTNUMBER, function() {
 	console.log("node listening on port " + DB_DRIVER_PORTNUMBER)
 });
 
+var os = require('os')
+console.log(os.hostname())
 // Request Handlers
 app.get("/gRNAquery", (req, res) => {
 	// Acutal query inputs
