@@ -7,7 +7,7 @@
 // MongoDBsSetup
 var mongo = require('mongodb')
 var mongoClient = mongo.MongoClient;
-var MONGO_URI = "mongodb://guest:guest@localhost:27017/";
+var MONGO_URI = "mongodb://guest:guest@128.174.126.230:27017/";
 
 // Listener setup
 var express = require('express');
@@ -55,3 +55,14 @@ app.get("/gRNAquery", (req, res) => {
 
 });
 
+mongoClient.connect(MONGO_URI, {'useUnifiedTopology': true}, (err, cli) => {
+	if (err) throw err;
+	const db = cli.db('Sorghum')
+	var test;
+	console.log('connected')	
+	db.collection('Cas9').find({'chromosome': chr, 'cutsite': {$gt: 800, $lt: 900}}).limit(10).toArray(function(err,docs) {
+		if (err) return res.send(err); 
+		return res.send(docs)
+	
+	})
+});
