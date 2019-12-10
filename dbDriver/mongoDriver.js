@@ -60,8 +60,9 @@ mongoClient.connect(MONGO_URI, {'useUnifiedTopology': true}, (err, cli) => {
 	const db = cli.db('Sorghum')
 	var test;
 	console.log('connected')	
-	db.collection('Cas9').find({'chromosome': chr, 'cutsite': {$gt: 800, $lt: 900}}).limit(10).toArray(function(err,docs) {
+	db.collection('Cas9').find({'chromosome': 'Chr01', 'cutsite': {$gt: 800, $lt: 900}}).limit(10).toArray(function(err,docs) {
 		if (err) return res.send(err); 
+		console.log(docs)
 		return res.send(docs)
 	
 	})
