@@ -54,16 +54,3 @@ app.get("/gRNAquery", (req, res) => {
 	});
 
 });
-
-mongoClient.connect(MONGO_URI, {'useUnifiedTopology': true}, (err, cli) => {
-	if (err) throw err;
-	const db = cli.db('Sorghum')
-	var test;
-	console.log('connected')	
-	db.collection('Cas9').find({'chromosome': 'Chr01', 'cutsite': {$gt: 800, $lt: 900}}).limit(10).toArray(function(err,docs) {
-		if (err) return res.send(err); 
-		console.log(docs)
-		return res.send(docs)
-	
-	})
-});
