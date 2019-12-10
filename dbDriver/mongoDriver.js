@@ -19,12 +19,11 @@ const app = express();
 app.use(cors())
 app.use(bodyParser.json())
 
-app.listen(DB_DRIVER_PORTNUMBER, function() {
+app.listen(DB_DRIVER_PORTNUMBER, "0.0.0.0", function() {
 	console.log("node listening on port " + DB_DRIVER_PORTNUMBER)
 });
 
-var os = require('os')
-console.log(os.hostname())
+
 // Request Handlers
 app.get("/gRNAquery", (req, res) => {
 	// Acutal query inputs
