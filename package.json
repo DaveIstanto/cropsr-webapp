@@ -5,6 +5,7 @@
   "homepage": "https://cabbilims.igb.illinois.edu/cropsr",
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "mdbreact": "^4.22.1",
     "mongodb": "^3.3.4",

@@ -35,6 +35,8 @@ app.get("/gRNAquery", (req, res) => {
 	const end = parseInt(req.query.end)
 	*/
 
+	console.log(req.header('host'))
+	
 	//toy query to parse data
 	const genome = 'Sorghum'
 	const system = 'Cas9'
