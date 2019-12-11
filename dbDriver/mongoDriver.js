@@ -29,12 +29,12 @@ app.get("/gRNAquery", (req, res) => {
 	// Acutal query inputs
 
 	const genome = req.query.genome
-	const system = req.query.system
+	const system = req.query.system.slice(0,1).toUpperCase() + req.query.system.slice(1,)
 	const chr = handleChr(parseInt(req.query.chr))
 	const start = parseInt(req.query.start)
 	const end = parseInt(req.query.end)
 
-	console.log(genome, system, chr, start, end)
+	
 	mongoClient.connect(MONGO_URI, {'useUnifiedTopology': true}, (err, cli) => {
 		if (err) throw err;
 		const db = cli.db(genome)
