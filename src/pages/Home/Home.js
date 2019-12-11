@@ -17,6 +17,12 @@ class Home extends React.Component {
                         <CropsrButton className='homeCropsrButton' caption='Try CROPSR'/>
                     </Link>
                 </div>
+                <br></br>
+                <div>
+                    Note from Developer: Currently this web application is in alpha version.
+                    <br/>
+                    For now, This web application will output up to 100 findings for the given query.
+                </div>
             </div>
             
         )

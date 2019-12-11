@@ -34,12 +34,11 @@ app.get("/gRNAquery", (req, res) => {
 	const start = parseInt(req.query.start)
 	const end = parseInt(req.query.end)
 
-	console.log(genome, system, chr, start, end)
 	mongoClient.connect(MONGO_URI, {'useUnifiedTopology': true}, (err, cli) => {
 		if (err) throw err;
 		const db = cli.db(genome)
 		console.log('connected')	
-		db.collection(system).find({'chromosome': chr, 'cutsite': {$gt: start, $lt: end}}).limit(10).toArray(function(err,docs) {
+		db.collection(system).find({'chromosome': chr, 'cutsite': {$gt: start, $lt: end}}).limit(100).toArray(function(err,docs) {
 			if (err) return res.send(err); 
 			return res.send(docs)
 		})

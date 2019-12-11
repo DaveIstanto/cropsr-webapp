@@ -43,7 +43,6 @@ class BasicSearchscreen extends React.Component {
 	};
 
 	componentDidMount() {
-		console.log('hello')
 		this.props.clearQueryResult();
 	}
 

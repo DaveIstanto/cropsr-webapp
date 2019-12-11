@@ -3,8 +3,8 @@ import './SystemCheckbox.css'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { updateCrisprSystem } from '../../redux/actions/updateQuery';
+import { CRISPR_SYSTEMS } from '../../REACT_ENV_VAR';
 
-const CRISPR_SYSTEMS = {cas9: 'S. pyogenes Cas9', cpf1: 'Prevotella/Francisella Cpf1'}
 
 class SystemCheckbox extends React.Component {
 
