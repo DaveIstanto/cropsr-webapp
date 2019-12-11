@@ -28,11 +28,11 @@ const store = createStore(reducer, initialState, composeWithDevTools(
     middleware
 ))
 
-var example_json = [{"_id":"5d9380835dfd2fa05653a0b2","cr   ispr_id":"A01LAJLXBQ","crispr_sys":"cas9","sequence":"CUCCUGCUGCUAGACAAUUA","long_sequence":"UCCAACUCCUGCUGCUAGACAAUUAUUGGA","chromosome":"Chr01","start_pos":785,"end_pos":805,"cutsite":802,"strand":"+","on_site_score":0.3532,"off_site_score":0,"features":"","field12":"completed"}]
-store.dispatch({type: 'CALL', payload: example_json})
-store.dispatch({type: 'CALL', payload: example_json})
-store.dispatch({type: 'CALL', payload: example_json})
-store.dispatch({type: 'CALL', payload: example_json})
+// var example_json = [{"_id":"5d9380835dfd2fa05653a0b2","cr   ispr_id":"A01LAJLXBQ","crispr_sys":"cas9","sequence":"CUCCUGCUGCUAGACAAUUA","long_sequence":"UCCAACUCCUGCUGCUAGACAAUUAUUGGA","chromosome":"Chr01","start_pos":785,"end_pos":805,"cutsite":802,"strand":"+","on_site_score":0.3532,"off_site_score":0,"features":"","field12":"completed"}]
+// store.dispatch({type: 'CALL', payload: example_json})
+// store.dispatch({type: 'CALL', payload: example_json})
+// store.dispatch({type: 'CALL', payload: example_json})
+// store.dispatch({type: 'CALL', payload: example_json})
 // store.dispatch({type: 'CALL', payload: example_json})
 
 // store.dispatch({type: 'CRISPRSYSTEM', payload: {system: 'cas9', value: true}})

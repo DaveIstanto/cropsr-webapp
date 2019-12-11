@@ -27,27 +27,16 @@ app.listen(DB_DRIVER_PORTNUMBER, "0.0.0.0", function() {
 // Request Handlers
 app.get("/gRNAquery", (req, res) => {
 	// Acutal query inputs
-	/**
+
 	const genome = req.query.genome
 	const system = req.query.system
-	const chr = parseInt(req.query.chr)
+	const chr = handleChr(parseInt(req.query.chr))
 	const start = parseInt(req.query.start)
 	const end = parseInt(req.query.end)
-	*/
-
-	console.log(req.header('host'))
-	
-	//toy query to parse data
-	const genome = 'Sorghum'
-	const system = 'Cas9'
-	const chr = 'Chr01'
-	const start = 800
-	const end = 900
 
 	mongoClient.connect(MONGO_URI, {'useUnifiedTopology': true}, (err, cli) => {
 		if (err) throw err;
 		const db = cli.db(genome)
-		var test;
 		console.log('connected')	
 		db.collection(system).find({'chromosome': chr, 'cutsite': {$gt: start, $lt: end}}).limit(10).toArray(function(err,docs) {
 			if (err) return res.send(err); 
@@ -57,3 +46,15 @@ app.get("/gRNAquery", (req, res) => {
 	});
 
 });
+
+function handleChr(chrInt) {
+	/**
+	 * Function to handling chromosome number, since this is the current convention
+	 * 
+	 */
+	if (chrInt < 10) {
+		return 'Chr0' + parseStr(chrInt)
+	} else {
+		return 'Chr' + parseStr(chrInt)
+	}
+}
