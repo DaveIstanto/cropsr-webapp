@@ -21,7 +21,7 @@ class Home extends React.Component {
                 <div>
                     Note from Developer: Currently this web application is in alpha version.
                     <br/>
-                    For now, This web application will output up to 100 findings for the given query.
+                    For now, This web application will output up to 15 findings for the given query.
                     <br/>
                     Please look forward to updates!
                 </div>
