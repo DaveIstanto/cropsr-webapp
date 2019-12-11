@@ -34,6 +34,7 @@ app.get("/gRNAquery", (req, res) => {
 	const start = parseInt(req.query.start)
 	const end = parseInt(req.query.end)
 
+	console.log(genome, system, chr, start, end)
 	mongoClient.connect(MONGO_URI, {'useUnifiedTopology': true}, (err, cli) => {
 		if (err) throw err;
 		const db = cli.db(genome)
@@ -53,8 +54,8 @@ function handleChr(chrInt) {
 	 * 
 	 */
 	if (chrInt < 10) {
-		return 'Chr0' + parseStr(chrInt)
+		return 'Chr0' + chrInt
 	} else {
-		return 'Chr' + parseStr(chrInt)
+		return 'Chr' + chrInt
 	}
 }
