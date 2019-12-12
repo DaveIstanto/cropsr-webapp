@@ -19,11 +19,7 @@ class Home extends React.Component {
                 </div>
                 <br></br>
                 <div>
-                    Note from Developer: Currently this web application is in alpha version.
-                    <br/>
-                    For now, This web application will output up to 15 findings for the given query.
-                    <br/>
-                    Please look forward to updates!
+                    Note from Developer: Currently this web application is in alpha version, please look forward to updates!
                 </div>
             </div>
             

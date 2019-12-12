@@ -27,8 +27,8 @@ class SearchResults extends React.Component {
                 <div className='searchResultsAltMainContainer'>
                     <div className='searchResultsLoaderContainer'>
                         <Loader height={200} width={200} type='Rings' color='#018100'/>
-                        <div className='searchResultsLoaderLabel'>Currently Loading...</div>
-                        <div className='searchResultsLoaderLabel'>If this loading screen persists, please allow mixed connections:</div>
+                        <div className='searchResultsLoaderLabel'>Currently Loading... This might take a while...</div>
+                        <div className='searchResultsLoaderLabel'>For now, please allow mixed connections:</div>
                         <div className='searchResultsLoaderLabel'>(https://docs.adobe.com/content/help/en/target/using/experiences/vec/troubleshoot-composer/mixed-content.html)</div>
                     </div>
                 </div>
