@@ -39,7 +39,7 @@ const queryReducer = function(state={}, action) {
         }
 
         case 'CLEAR' : {
-            state = {...state, queryResult: []}
+            state = {...state, system: {cas9: false, cpf1: false}, queryResult: []}
             break;
         }
 
