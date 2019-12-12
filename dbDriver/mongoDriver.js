@@ -38,7 +38,7 @@ app.get("/gRNAquery", (req, res) => {
 		if (err) throw err;
 		const db = cli.db(genome)
 		console.log('connected')	
-		db.collection(system).find({'chromosome': chr, 'cutsite': {$gt: start, $lt: end}}).limit(15).toArray(function(err,docs) {
+		db.collection(system).find({'chromosome': chr, 'cutsite': {$gt: start, $lt: end}}).toArray(function(err,docs) {
 			if (err) return res.send(err); 
 			return res.send(docs)
 		})
